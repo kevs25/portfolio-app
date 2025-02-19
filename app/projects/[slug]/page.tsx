@@ -8,7 +8,8 @@ import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
   const projects = await getProjects()
-  const slugs = projects.map(project => ({ slug: project.slug }))
+  // const slugs = projects.map(project => ({ slug: project.slug }))
+  const slugs = projects.map((project) => ({ params: { slug: project.slug } }));
 
   return slugs
 }
