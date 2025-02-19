@@ -13,13 +13,13 @@ export async function generateStaticParams() {
 
   return slugs
 }
-
+type Params = Promise<{ slug: string }>
 export default async function Project({
   params
 }: {
-  params: { slug: string }
+  params: Params
 }) {
-  const { slug } = params
+  const { slug } = await params
   const project = await getProjectBySlug(slug)
   console.log(project)
   if (!project) {
