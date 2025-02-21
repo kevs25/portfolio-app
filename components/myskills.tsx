@@ -10,7 +10,7 @@ export default function MySkills() {
         Tech Stack <span style={{ fontSize: '1.5rem' }}>🚀</span>
       </h2>
 
-      <Marquee play={true} speed={40} pauseOnHover={true} gradient={false}>
+      <Marquee play={true} speed={40} pauseOnHover={true} gradient={false} delay={2}>
         <div
           style={{
             display: 'flex',
