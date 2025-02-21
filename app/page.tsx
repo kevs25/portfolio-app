@@ -1,4 +1,5 @@
 import Intro from "@/components/intro";
+import MySkills from "@/components/myskills";
 import RecentProjects from "@/components/recentProjects";
 import React from "react";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <div className="container max-w-3xl">
         <Intro />
         <RecentProjects />
+        <MySkills />
       </div>
     </section>
   );
