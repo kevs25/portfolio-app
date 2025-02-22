@@ -71,13 +71,103 @@ const config = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
+        },
+        'nav-load': {
+          '0%': {
+            transform: 'translateY(-100%)'
+            
+          },
+          '100%': {
+            transform: 'translateY(0)'
+          }
+        },
+        'footer-load': {
+          '0%': {
+            transform: 'translateY(1000%)'
+          },
+          '100%': {
+            transform: 'translateY(0)'
+          }
+        },
+        'intro-content-load': {
+          '0%': {
+            transform: 'translateX(-150%)',
+          },
+          '90%': {
+            transform: 'translateX(50%)'
+          },
+          '100%': {
+            transform: 'translateX(0)'
+          }
+        },
+        'intro-image-load': {
+          '0%': {
+            transform: 'translateX(150%)'
+          },
+          '90%': {
+            transform: 'translateX(-50%)'
+          },
+          '100%': {
+            transform: 'translateX(0)'
+          }
+        },
+        
+        'project-load': {
+          '0%': {
+            transform: 'scale(0)'
+          },
+          '90%': {
+            transform: 'scale(1.1)'
+          },
+          '100%': {
+            transform: 'scale(1)'
+          },
+        },
+
+        'tech-load': {
+          '0%': {
+            transform: 'translateY(-20px)',
+            opacity : '0'
+          },
+          '100%': {
+            transform: 'translateY(0px)',
+            opacity : '1'
+          }
+        },
+
+        'cart-load' : {
+          '0%' : {
+            transform: 'rotate(-90deg) scale(0)',
+            opcaity: '0'
+          },
+
+          '100%' : {
+            transform: 'rotate(0deg) scale(1)',
+            opacity : '1'
+          }
+        },
+        'form-load' : {
+          '0%' : {
+            transform: 'translateY(300%)',
+          },
+          '100%' : {
+            transform: 'translateY(0)',
+          }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'nav-load': 'nav-load 0.7s ease-in',
+        'footer-load': 'footer-load 0.7s ease-in',
+        'intro-content-load': 'intro-content-load 0.7s ease-in',
+        'intro-image-load': 'intro-image-load 0.7s ease-out',
+        'project-load': 'project-load 0.9s ease-in',
+        'tech-load': 'tech-load 0.9s ease-in',
+        'cart-load' : 'cart-load 0.9s ease-in',
+        'form-load' : 'form-load 0.9s ease-in'
       }
-    }
+    },
   },
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')]
 } satisfies Config

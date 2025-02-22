@@ -1,7 +1,6 @@
 'use client'
 
 import { z } from 'zod'
-import Link from 'next/link'
 import { toast } from 'sonner'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -9,12 +8,15 @@ import { ContactFormSchema } from '@/lib/schemas'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-// import { sendEmail } from '@/lib/actions'
+import { sendEmail } from '@/lib/actions'
+
 
 
 type Inputs = z.infer<typeof ContactFormSchema>
 
 export default function ContactForm() {
+
+
   const {
     register,
     handleSubmit,
@@ -30,12 +32,13 @@ export default function ContactForm() {
   })
 
   const processForm: SubmitHandler<Inputs> = async data => {
-    // const result = await sendEmail(data)
+    const result = await sendEmail(data)
     console.log('Data:', data)
-    // if (result?.error) {
-    //   toast.error('An error occurred! Please try again.')
-    //   return
-    // }
+    if (result?.error) {
+      console.log('Error:', result.error)
+      toast.error('An error occurred! Please try again.')
+      return
+    }
 
     toast.success('Message sent successfully!')
     reset()
@@ -135,21 +138,16 @@ export default function ContactForm() {
               )}
             </div>
           </div>
+
           <div className='mt-6'>
             <Button
               type='submit'
               disabled={isSubmitting}
               className='w-full disabled:opacity-50'
             >
-              {isSubmitting ? 'Submitting...' : 'Contact Us'}
+              {isSubmitting ? 'Submitting...' : 'Send Message'}
             </Button>
           </div>
-          <p className='mt-4 text-xs text-muted-foreground'>
-            By submitting this form, I agree to the{' '}
-            <Link href='/privacy' className='font-bold'>
-              privacy&nbsp;policy.
-            </Link>
-          </p>
         </form>
       </div>
     </section>

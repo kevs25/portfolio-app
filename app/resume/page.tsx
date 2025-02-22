@@ -8,7 +8,7 @@ export default async function Resume() {
   const { metaData, content } = resume
   const { name, designation, phone, address, linkedIn, gitHub } = metaData
   return (
-    <section className='pb-2 pt-24'>
+    <section className='pb-2 pt-24 animate-tech-load translate-y-[-20px] opacity-0 fill-mode-forwards delay-300'>
       <div className='container max-w-3xl'>
         <div className='flex flex-wrap items-center justify-between'>
           {name && <h1 className='title'>{name}</h1>}
@@ -16,7 +16,7 @@ export default async function Resume() {
           <a
             href='/KEVIN_DANIEL_RESUME.pdf'
             download={true}
-            className='flex items-center gap-2 text-muted-foreground hover:text-foreground'
+            className='flex items-center gap-2 text-muted-foreground hover:text-foreground animate-bounce'
           >
             <DownloadIcon className='h-6 w-6'></DownloadIcon>
           </a>

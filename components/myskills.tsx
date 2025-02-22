@@ -4,8 +4,10 @@ import { FaReact, FaPython, FaAws, FaDocker } from 'react-icons/fa';
 import { SiFastapi, SiJavascript, SiMongodb, SiMysql, SiNextdotjs, SiTypescript } from 'react-icons/si';
 
 export default function MySkills() {
+  //animate-project-load scale-0 fill-mode-forwards delay-700
   return (
-    <div style={{ textAlign: 'center', padding: '20px' }}>
+    
+    <div className='text-center p-5 animate-tech-load translate-y-[-20px] opacity-0 fill-mode-forwards delay-700'>
       <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '10px', color: 'white' }}>
         Tech Stack <span style={{ fontSize: '1.5rem' }}>🚀</span>
       </h2>

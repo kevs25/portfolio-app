@@ -11,7 +11,7 @@ export default function Projects({
   projects: ProjectMetadata[]
 }) {
   return (
-    <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2'>
+    <ul className='grid grid-cols-1 gap-8 sm:grid-cols-2 animate-cart-load rotate-0 scale-100 opacity-0 fill-mode-forwards'>
       {projects.map(project => (
         <li key={project.slug} className='group relative'>
           <Link href={`/projects/${project.slug}`}>
