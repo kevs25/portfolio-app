@@ -18,17 +18,25 @@ export async function sendEmail(data: ContactFormInputs) {
   
     try {
       const { name, email, message } = result.data
-      const { data, error } = await resend.emails.send({
-        from: 'Acme <noreply@skevindaniel.com>',
-        to: [email],
-        subject: 'Contact form submission',
+      const { error : ownerError } = await resend.emails.send({
+        from: 'Kevin Daniel <noreply@skevindaniel.com>',
+        to: ["kevindaniel200225@gmail.com"],
+        subject: `New Contact Form Submission from ${name}`,
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
         react: React.createElement(ContactFormEmail, { name, email, message }) 
       })
-  
-      if (!data || error) {
-        console.log('Error:', error)
-        throw new Error('Failed to send email')
+      if (ownerError) {
+        throw new Error('Failed to send email to owner')
+      }
+      const { error : userError } = await resend.emails.send({
+        from: 'Kevin Daniel <noreply@skevindaniel.com>',
+        to: [email],
+        subject: 'Thank you for reaching out!',
+        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+        react: React.createElement(ContactFormEmail, { name, email, message }) 
+      })
+      if (userError) {
+        throw new Error('Failed to send email to owner')
       }
   
       return { success: true }
